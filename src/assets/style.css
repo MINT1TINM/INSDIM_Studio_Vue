@@ -1,4 +1,4 @@
-body, p, label, .v-btn, .headline {
+body, p, label, .v-btn, .headline, .v-toolbar__title,.v-list__tile__title,.v-list__tile--link {
   font-family: "Roboto Mono", "Helvetica Neue", sans-serif !important;
   text-transform: uppercase
 }

@@ -55,6 +55,7 @@ export default {
       if (this.$refs.loginForm.validate()) {
         const rsp = await authService.login(this.username, this.password);
         if (rsp.msg == "success") {
+          this.$router.push({ path: "/index" });
         }
         this.$loading.show(false);
       }

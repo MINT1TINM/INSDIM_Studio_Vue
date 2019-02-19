@@ -8,6 +8,16 @@ export default new Router({
     {
       path: "/",
       component: () => import("./views/Login")
+    },
+    {
+      path: "/index",
+      component: () => import("./views/Index"),
+      children: [
+        {
+          path: "/launcher",
+          component: () => import("./views/Launcher")
+        }
+      ]
     }
   ]
 });
