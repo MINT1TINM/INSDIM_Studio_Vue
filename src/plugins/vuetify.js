@@ -11,7 +11,7 @@ import "./upload/index";
 
 Vue.use(Vuetify, {
   theme: {
-    primary: colors.indigo.lighten2,
+    primary: colors.grey.darken4,
     secondary: "#424242",
     accent: colors.indigo.lighten2,
     error: "#FF5252",
