@@ -16,6 +16,22 @@ export default new Router({
         {
           path: "/launcher",
           component: () => import("./views/Launcher")
+        },
+        {
+          path: "/inslens",
+          component: () => import("./views/inslens/Home"),
+          children: [
+            {
+              path: "/inslens/work",
+              component: () => import("./components/inslens/work/List"),
+              children: [
+                {
+                  path: "/inslens/work/:id",
+                  component: () => import("./components/inslens/work/Detail")
+                }
+              ]
+            }
+          ]
         }
       ]
     }

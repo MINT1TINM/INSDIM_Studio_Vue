@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-toolbar flat color="transparent">
+    <v-toolbar app clipped-left flat color="transparent">
       <v-toolbar-title>DIMLAB Studio</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-menu offset-y>

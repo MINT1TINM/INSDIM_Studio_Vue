@@ -4,7 +4,11 @@ import App from "./App";
 import router from "./router";
 import store from "./store/store";
 import axios from "axios";
-
+import vueQuillEditor from "vue-quill-editor";
+import "quill/dist/quill.core.css";
+import "quill/dist/quill.snow.css";
+import "quill/dist/quill.bubble.css";
+Vue.use(vueQuillEditor);
 Vue.config.productionTip = false;
 
 axios.interceptors.request.use(config => {

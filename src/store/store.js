@@ -4,6 +4,7 @@ import VuexPersistence from "vuex-persist";
 import Cookies from "js-cookie";
 
 import user from "./modules/user";
+import work from "./modules/work";
 
 Vue.use(Vuex);
 
@@ -20,16 +21,19 @@ const vuexCookie = new VuexPersistence({
 const vuexSession = new VuexPersistence({
   storage: window.sessionStorage,
   reducer: state => ({
-    user: state.user
+    user: state.user,
+    work: state.work
   }),
   filter: mutation =>
     mutation.type == "user/updateUserInfo" ||
-    mutation.type == "user/updateUserList"
+    mutation.type == "user/updateUserList" ||
+    mutation.type == "work/getWorkList"
 });
 
 export default new Vuex.Store({
   modules: {
-    user
+    user,
+    work
   },
   plugins: [vuexCookie.plugin, vuexSession.plugin]
 });

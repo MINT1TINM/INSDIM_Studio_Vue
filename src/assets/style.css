@@ -1,8 +1,38 @@
-body, p, label, .v-btn, .headline, .v-toolbar__title,.v-list__tile__title,.v-list__tile--link {
+body, p, label, .v-btn, .headline, .v-toolbar__title, .v-list__tile__title, .v-list__tile--link, .v-card__title, .v-subheader {
   font-family: "Roboto Mono", "Helvetica Neue", sans-serif !important;
   text-transform: uppercase
 }
 
-input {
+input, h1, h2, h3, h4, h5 {
   font-family: "Roboto Mono", "Helvetica Neue", sans-serif !important;
+}
+
+.theme--dark.v-sheet, .theme--dark.v-card {
+  background: #1d1d1d !important;
+  background-color: #1d1d1d !important
+}
+
+.theme--light.v-navigation-drawer, .theme--light.v-list {
+  background-color: transparent;
+}
+
+.clip-content {
+  height: calc(100vh - 64px);
+  overflow: auto;
+}
+
+.active-tile {
+  background: #c9c9c9 !important
+}
+
+.subheading {
+  font-size: 14px !important
+}
+
+.toolbar-no-padding {
+  margin-left: -24px;
+}
+
+.container {
+  padding: 5px !important
 }

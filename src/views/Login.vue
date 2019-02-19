@@ -42,6 +42,7 @@
 <script>
 import authService from "../service/AuthService";
 import { mapGetters } from "vuex";
+import workService from "../service/inslens/WorkService";
 export default {
   data() {
     return {
@@ -55,7 +56,8 @@ export default {
       if (this.$refs.loginForm.validate()) {
         const rsp = await authService.login(this.username, this.password);
         if (rsp.msg == "success") {
-          this.$router.push({ path: "/index" });
+          workService.getWorkList();
+          this.$router.push({ path: "/launcher" });
         }
         this.$loading.show(false);
       }
