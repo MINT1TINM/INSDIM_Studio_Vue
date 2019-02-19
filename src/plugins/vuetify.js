@@ -1,11 +1,13 @@
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
-import "../assets/style.css";
 import colors from "vuetify/es5/util/colors";
 import "vuetify/src/stylus/app.styl";
+import "../assets/style.css";
 import zhHans from "vuetify/es5/locale/zh-Hans";
 import "./confirm-dialog/index";
 import "./snackbar/index";
+import "./loading/index";
+import "./upload/index";
 
 Vue.use(Vuetify, {
   theme: {
