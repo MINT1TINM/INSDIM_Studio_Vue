@@ -7,7 +7,6 @@ import axios from "axios";
 
 Vue.config.productionTip = false;
 
-axios.defaults.baseURL = "http://127.0.0.1:3000";
 axios.interceptors.request.use(config => {
   //设置拦截器
   config.headers["Content-Type"] = "application/json;charset=UTF-8";
@@ -18,9 +17,6 @@ axios.interceptors.request.use(config => {
     err;
   }
 
-  // if (config.method === "post" || config.method === "put") {
-  //   config.data = qs.stringify(config.data);
-  // }
   return config;
 });
 

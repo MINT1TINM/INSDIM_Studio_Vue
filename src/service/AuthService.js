@@ -9,7 +9,7 @@ class authService {
     });
     if (rspData.data) {
       var userInfo = rspData.data.user;
-      store.dispatch("user/login", userInfo);
+      store.dispatch("login", userInfo);
     }
     message.snackbar(rspData.msg);
     return rspData;

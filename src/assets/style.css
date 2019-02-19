@@ -1,8 +1,8 @@
-body, p, input, label, .v-btn {
+body, p, label, .v-btn, .headline {
   font-family: "Roboto Mono", "Helvetica Neue", sans-serif !important;
   text-transform: uppercase
 }
 
-.headline {
+input {
   font-family: "Roboto Mono", "Helvetica Neue", sans-serif !important;
 }
