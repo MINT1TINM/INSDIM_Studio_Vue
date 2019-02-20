@@ -30,6 +30,10 @@ export default new Router({
                   component: () => import("./components/inslens/work/Detail")
                 }
               ]
+            },
+            {
+              path: "/inslens/newwork",
+              component: () => import("./components/inslens/work/New")
             }
           ]
         }

@@ -2,7 +2,13 @@
   <v-app>
     <v-navigation-drawer app permanent fixed clipped>
       <v-list class="pt-0" dense>
-        <v-list-tile active-class="active-tile" v-for="(item,i) in menu" :key="i" :to="item.route" ripple>
+        <v-list-tile
+          active-class="active-tile"
+          v-for="(item,i) in menu"
+          :key="i"
+          :to="item.route"
+          ripple
+        >
           <v-subheader class="pt-4 mb-1" v-if="item.heading">{{ item.heading }}</v-subheader>
           <v-list-tile-content v-else>
             <v-list-tile-title class="subheading ml-3">{{ item.title }}</v-list-tile-title>
@@ -34,7 +40,8 @@ export default {
           heading: "work"
         },
         {
-          title: "+new"
+          title: "+new",
+          route: "/inslens/newwork"
         },
         {
           title: "list",

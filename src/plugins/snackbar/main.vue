@@ -1,7 +1,7 @@
 <template>
   <v-snackbar :color="color" :timeout="2000" top v-model="snackbar">
     {{message}}
-    <v-btn flat @click="snackbar = false">关闭</v-btn>
+    <v-btn flat @click="snackbar = false">close</v-btn>
   </v-snackbar>
 </template>
 
@@ -17,10 +17,10 @@ export default {
     show(type) {
       if (type == "success") {
         this.color = "success";
-        this.message = "操作成功";
+        this.message = "succeed";
       } else {
         this.color = "error darken-1";
-        this.message = "操作失败";
+        this.message = "failed";
       }
       this.snackbar = true;
     }

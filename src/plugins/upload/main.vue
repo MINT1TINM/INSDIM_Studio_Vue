@@ -9,7 +9,7 @@
         ref="inputer"
       >
       <label for="upload_file"></label>
-      <v-btn block round depressed color="primary">{{file?fileName:"点击以上传"}}</v-btn>
+      <v-btn block depressed color="primary">{{file?fileName:"+"}}</v-btn>
     </div>
   </div>
 </template>

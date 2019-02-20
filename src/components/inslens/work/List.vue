@@ -42,7 +42,9 @@ export default {
       workList: "work/workList"
     })
   },
-  async mounted() {}
+  async mounted() {
+    workService.getWorkList();
+  }
 };
 </script>
 
