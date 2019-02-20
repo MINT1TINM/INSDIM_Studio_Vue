@@ -24,7 +24,7 @@
       </v-list>
     </v-flex>
     <v-flex xs9>
-      <router-view></router-view>
+      <router-view @updateworklist="getWorkList"></router-view>
     </v-flex>
   </v-layout>
 </template>
@@ -36,7 +36,11 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    getWorkList() {
+      workService.getWorkList();
+    }
+  },
   computed: {
     ...mapGetters({
       workList: "work/workList"

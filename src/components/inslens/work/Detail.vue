@@ -71,7 +71,10 @@
               </v-flex>
             </v-layout>
           </v-container>
-
+          <v-toolbar class="toolbar-no-padding pt-4" flat color="transparent">
+            <v-toolbar-title>fuck</v-toolbar-title>
+          </v-toolbar>
+          <v-divider class="mb-3"></v-divider>
           <v-container>
             <v-btn block color="error" @click="deleteWork" depressed>delete</v-btn>
           </v-container>
@@ -152,7 +155,9 @@ export default {
     async deleteWork() {
       try {
         await this.$confirm("fuck?");
-        workService.deleteWork(this.$route.params.id);
+        await workService.deleteWork(this.$route.params.id);
+        this.$emit("updateworklist");
+        this.$router.push({ path: "/inslens/work" });
       } catch (err) {
         err;
       }
@@ -160,7 +165,9 @@ export default {
     async deletePic(item) {
       try {
         await this.$confirm("fuck?");
-        workService.deletePic(item, this.$route.params.id, this.type);
+        await workService.deletePic(item, this.$route.params.id, this.type);
+        await this.getWorkDetail();
+        this.$router.push({ path: "/inslens/work" });
       } catch (err) {
         err;
       }

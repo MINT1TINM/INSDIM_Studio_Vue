@@ -27,8 +27,9 @@ export default {
     };
   },
   methods: {
-    createWork() {
-      workService.createWork(this.workDetail);
+    async createWork() {
+      await workService.createWork(this.workDetail);
+      this.$router.push({ path: "/inslens/work" });
     }
   }
 };
