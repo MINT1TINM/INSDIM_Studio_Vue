@@ -6,11 +6,10 @@
           <v-toolbar class="toolbar-no-padding" flat color="transparent">
             <v-toolbar-title>info</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn @click="createWork" depressed dark style="margin-right:-48px">create</v-btn>
+            <v-btn @click="createNews" depressed dark style="margin-right:-48px">create</v-btn>
           </v-toolbar>
           <v-divider class="mb-3"></v-divider>
-          <v-text-field v-model="workDetail.title" label="title" required></v-text-field>
-          <v-text-field v-model="workDetail.year" label="year" required></v-text-field>
+          <v-text-field v-model="newsDetail.title" label="title" required></v-text-field>
         </v-form>
       </v-flex>
     </v-layout>
@@ -18,18 +17,18 @@
 </template>
 
 <script>
-import workService from "../../../service/inslens/WorkService";
+import newsService from "../../../service/inslens/NewsService";
 
 export default {
   data() {
     return {
-      workDetail: {}
+      newsDetail: {}
     };
   },
   methods: {
-    async createWork() {
-      await workService.createWork(this.workDetail);
-      this.$router.push({ path: "/inslens/work" });
+    async createNews() {
+      await newsService.createNews(this.newsDetail);
+      this.$router.push({ path: "/inslens/news" });
     }
   }
 };

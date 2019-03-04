@@ -2,20 +2,18 @@
   <v-container class="clip-content">
     <v-layout justify-center>
       <v-flex xs9>
-        <v-form ref="workDetailForm">
+        <v-form ref="newsDetailForm">
           <v-toolbar class="toolbar-no-padding" flat color="transparent">
             <v-toolbar-title>info</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn @click="updateWorkInfo" depressed dark style="margin-right:-48px">save</v-btn>
+            <v-btn @click="updateNews" depressed dark style="margin-right:-48px">save</v-btn>
           </v-toolbar>
           <v-divider class="mb-3"></v-divider>
-          <v-switch v-model="workDetail.visibility" label="visibility"></v-switch>
-          <v-text-field v-model="workDetail.title" label="title" required></v-text-field>
-          <v-text-field v-model="workDetail.designer" label="designer" required></v-text-field>
-          <v-text-field v-model="workDetail.year" label="year" required></v-text-field>
-          <v-text-field v-model="workDetail.client" label="client" required></v-text-field>
+          <v-switch v-model="newsDetail.visibility" label="visibility"></v-switch>
+          <v-text-field v-model="newsDetail.title" label="title" required></v-text-field>
+          <v-text-field v-model="newsDetail.author" label="author" required></v-text-field>
           <quill-editor
-            v-model="workDetail.description"
+            v-model="newsDetail.content"
             ref="myQuillEditor"
             :options="editorOption"
           ></quill-editor>
@@ -24,7 +22,7 @@
             <v-toolbar-title>media</v-toolbar-title>
           </v-toolbar>
           <v-divider class="mb-3"></v-divider>
-          <v-text-field v-model="workDetail.videolink" label="video link"></v-text-field>
+          <v-text-field v-model="newsDetail.videolink" label="video link"></v-text-field>
 
           <v-toolbar class="toolbar-no-padding pt-4" flat color="transparent">
             <v-toolbar-title>fold</v-toolbar-title>
@@ -38,9 +36,9 @@
             <v-layout>
               <v-flex xs4>
                 <v-card dark flat tile>
-                  <v-img aspect-ratio="1" contain :src="workDetail.titlePic.url"></v-img>
+                  <v-img aspect-ratio="1" contain :src="newsDetail.titlePic.url"></v-img>
                   <v-card-actions>
-                    <v-btn icon @click="deletePic(workDetail.titlePic);type='fold'">
+                    <v-btn icon @click="deletePic(newsDetail.titlePic);type='fold'">
                       <v-icon>clear</v-icon>
                     </v-btn>
                   </v-card-actions>
@@ -49,7 +47,7 @@
             </v-layout>
           </v-container>
 
-          <v-toolbar class="toolbar-no-padding pt-4" flat color="transparent">
+          <!-- <v-toolbar class="toolbar-no-padding pt-4" flat color="transparent">
             <v-toolbar-title>pic</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn icon style="margin-right:-48px" @click="uploadPicDialog=true">
@@ -59,7 +57,7 @@
           <v-divider class="mb-3"></v-divider>
           <v-container grid-list-md>
             <v-layout wrap>
-              <v-flex xs4 v-for="(item,i) in workDetail.pic" :key="i">
+              <v-flex xs4 v-for="(item,i) in newsDetail.pic" :key="i">
                 <v-card dark flat tile>
                   <v-img aspect-ratio="1.5" :src="item.url"></v-img>
                   <v-card-actions>
@@ -70,7 +68,7 @@
                 </v-card>
               </v-flex>
             </v-layout>
-          </v-container>
+          </v-container> -->
           <v-toolbar class="toolbar-no-padding pt-4" flat color="transparent">
             <v-toolbar-title>fuck</v-toolbar-title>
           </v-toolbar>
@@ -103,13 +101,13 @@
 </template>
 
 <script>
-import workService from "../../../service/inslens/WorkService";
+import newsService from "../../../service/inslens/NewsService";
 import { quillEditor } from "vue-quill-editor";
 
 export default {
   data() {
     return {
-      workDetail: {},
+      newsDetail: {},
       editorOption: {
         modules: {
           toolbar: [
@@ -124,21 +122,21 @@ export default {
     };
   },
   methods: {
-    async getWorkDetail() {
-      const rsp = await workService.getWorkDetail(this.$route.params.id);
-      this.workDetail = rsp.data.workList[0];
+    async getNewsDetail() {
+      const rsp = await newsService.getNewsDetail(this.$route.params.id);
+      this.newsDetail = rsp.data.newsList[0];
 
       if (
-        this.workDetail.visibility == "true" ||
-        this.workDetail.visibility == "1"
+        this.newsDetail.visibility == "true" ||
+        this.newsDetail.visibility == "1"
       ) {
-        this.workDetail.visibility = true;
+        this.newsDetail.visibility = true;
       } else {
-        this.workDetail.visibility = false;
+        this.newsDetail.visibility = false;
       }
     },
-    async updateWorkInfo() {
-      const rsp = await workService.updateWork(this.workDetail);
+    async updateNews() {
+      const rsp = await newsService.updateNews(this.newsDetail);
     },
     async uploadPic() {
       let fileForm = new FormData();
@@ -147,17 +145,17 @@ export default {
       fileForm.append("file", this.file);
       fileForm.append("_id", this.$route.params.id);
       fileForm.append("type", this.type);
-      const rsp = await workService.uploadPic(fileForm);
+      const rsp = await newsService.uploadPic(fileForm);
       this.type = null;
       this.uploadPicDialog = false;
-      this.getWorkDetail();
+      this.getNewsDetail();
     },
     async deleteWork() {
       try {
         await this.$confirm("fuck?");
-        await workService.deleteWork(this.$route.params.id);
+        await newsService.deleteNews(this.$route.params.id);
         this.$emit("updateworklist");
-        this.$router.push({ path: "/inslens/work" });
+        this.$router.push({ path: "/inslens/news" });
       } catch (err) {
         err;
       }
@@ -165,20 +163,20 @@ export default {
     async deletePic(item) {
       try {
         await this.$confirm("fuck?");
-        await workService.deletePic(item, this.$route.params.id, this.type);
-        await this.getWorkDetail();
-        this.$router.push({ path: "/inslens/work" });
+        await newsService.deletePic(item, this.$route.params.id, this.type);
+        await this.getNewsDetail();
+        this.$router.push({ path: "/inslens/news" });
       } catch (err) {
         err;
       }
     }
   },
   mounted() {
-    this.getWorkDetail();
+    this.getNewsDetail();
   },
   beforeRouteUpdate(to, from, next) {
     next();
-    this.getWorkDetail();
+    this.getNewsDetail();
   }
 };
 </script>
