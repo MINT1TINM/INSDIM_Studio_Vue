@@ -31,10 +31,12 @@ export default {
           heading: "news"
         },
         {
-          title: "+new"
+          title: "+new",
+          route: "/inslens/newnews"
         },
         {
-          title: "list"
+          title: "list",
+          route: "/inslens/news"
         },
         {
           heading: "work"

@@ -33,7 +33,21 @@ export default new Router({
             },
             {
               path: "/inslens/newwork",
-              component: () => import("./components/inslens/work/New")
+              component: () => import("./components/inslens/news/New")
+            },
+            {
+              path: "/inslens/news",
+              component: () => import("./components/inslens/news/List"),
+              children: [
+                {
+                  path: "/inslens/news/:id",
+                  component: () => import("./components/inslens/news/Detail")
+                }
+              ]
+            },
+            {
+              path: "/inslens/newnews",
+              component: () => import("./components/inslens/news/New")
             }
           ]
         }
