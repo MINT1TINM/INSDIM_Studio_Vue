@@ -4,7 +4,7 @@ import message from "../../utils/Message";
 
 class workService {
   static async createNews(newsDetail) {
-    const rsp = await basicSerivce.postRequest("/inslens/news", newsDetail);
+    const rsp = await basicSerivce.postRequest("/inslens/post", newsDetail);
     if (rsp.msg == "success") {
       message.snackbar(rsp.msg);
     }
@@ -12,20 +12,20 @@ class workService {
   }
 
   static async getNewsList() {
-    const rsp = await basicSerivce.getRequest("/inslens/news");
+    const rsp = await basicSerivce.getRequest("/inslens/post");
     store.dispatch("news/getNewsList", rsp.data.newsList);
     return rsp;
   }
 
   static async getNewsDetail(newsId) {
-    const rsp = await basicSerivce.getRequest("/inslens/news", {
+    const rsp = await basicSerivce.getRequest("/inslens/post", {
       newsId: newsId
     });
     return rsp;
   }
 
   static async updateNews(newsDetail) {
-    const rsp = await basicSerivce.putRequest("/inslens/news", newsDetail);
+    const rsp = await basicSerivce.putRequest("/inslens/post", newsDetail);
     if (rsp.msg == "success") {
       message.snackbar(rsp.msg);
     }
@@ -33,7 +33,7 @@ class workService {
   }
 
   static async uploadPic(file) {
-    const rsp = await basicSerivce.postRequest("/inslens/news/pic", file);
+    const rsp = await basicSerivce.postRequest("/inslens/post/pic", file);
     if (rsp.msg == "success") {
       message.snackbar(rsp.msg);
     }
@@ -41,7 +41,7 @@ class workService {
   }
 
   static async deletePic(picInfo, newsId, type) {
-    const rsp = await basicSerivce.deleteRequest("/inslens/news/pic", {
+    const rsp = await basicSerivce.deleteRequest("/inslens/post/pic", {
       picInfo: picInfo,
       newsId: newsId,
       type: type
@@ -50,7 +50,7 @@ class workService {
   }
 
   static async deleteNews(newsId) {
-    const rsp = await basicSerivce.deleteRequest("/inslens/news", {
+    const rsp = await basicSerivce.deleteRequest("/inslens/post", {
       newsId: newsId
     });
     if (rsp.msg == "success") {
