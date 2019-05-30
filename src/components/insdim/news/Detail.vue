@@ -155,7 +155,7 @@ export default {
         await this.$confirm("fuck?");
         await newsService.deleteNews(this.$route.params.id);
         this.$emit("updateworklist");
-        this.$router.push({ path: "/inslens/news" });
+        this.$router.push({ path: "/insdim/news" });
       } catch (err) {
         err;
       }
@@ -165,7 +165,7 @@ export default {
         await this.$confirm("fuck?");
         await newsService.deletePic(item, this.$route.params.id, this.type);
         await this.getNewsDetail();
-        this.$router.push({ path: "/inslens/news" });
+        this.$router.push({ path: "/insdim/news" });
       } catch (err) {
         err;
       }

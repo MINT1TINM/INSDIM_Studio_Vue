@@ -42,8 +42,8 @@
 <script>
 import authService from "../service/AuthService";
 import { mapGetters } from "vuex";
-import workService from "../service/inslens/WorkService";
-import newsService from "../service/inslens/NewsService";
+import workService from "../service/insdim/WorkService";
+import newsService from "../service/insdim/NewsService";
 export default {
   data() {
     return {
