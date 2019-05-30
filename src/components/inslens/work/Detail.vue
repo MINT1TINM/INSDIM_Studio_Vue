@@ -14,6 +14,8 @@
           <v-text-field v-model="workDetail.designer" label="designer" required></v-text-field>
           <v-text-field v-model="workDetail.year" label="year" required></v-text-field>
           <v-text-field v-model="workDetail.client" label="client" required></v-text-field>
+          <v-text-field v-model="workDetail.type" label="type" required></v-text-field>
+          <v-text-field v-model="workDetail.collaborator" label="collaborator" required></v-text-field>
           <quill-editor
             v-model="workDetail.description"
             ref="myQuillEditor"
@@ -167,7 +169,7 @@ export default {
         await this.$confirm("fuck?");
         await workService.deletePic(item, this.$route.params.id, this.type);
         await this.getWorkDetail();
-        this.$router.push({ path: "/inslens/work" });
+        // this.$router.push({ path: "/inslens/work" });
       } catch (err) {
         err;
       }
