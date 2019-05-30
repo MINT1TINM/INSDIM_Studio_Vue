@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import workService from "../../../service/inslens/WorkService";
+import workService from "../../../service/insdim/WorkService";
 
 export default {
   data() {
@@ -29,7 +29,7 @@ export default {
   methods: {
     async createWork() {
       await workService.createWork(this.workDetail);
-      this.$router.push({ path: "/inslens/work" });
+      this.$router.push({ path: "/insdim/work" });
     }
   }
 };

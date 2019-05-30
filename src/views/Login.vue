@@ -7,7 +7,7 @@
             <v-flex xs4 d-flex>
               <v-container style="padding-right:100px !important">
                 <v-card-text>
-                  <p class="text-md-left headline font-weight-bold mb-4 pt-3">INSLENS KEY</p>
+                  <p class="text-md-left headline font-weight-bold mb-4 pt-3">INSDIM KEY</p>
                   <v-form ref="loginForm">
                     <v-text-field
                       v-model="username"

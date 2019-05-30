@@ -105,7 +105,7 @@
 </template>
 
 <script>
-import workService from "../../../service/inslens/WorkService";
+import workService from "../../../service/insdim/WorkService";
 import { quillEditor } from "vue-quill-editor";
 
 export default {
@@ -159,7 +159,7 @@ export default {
         await this.$confirm("fuck?");
         await workService.deleteWork(this.$route.params.id);
         this.$emit("updateworklist");
-        this.$router.push({ path: "/inslens/work" });
+        this.$router.push({ path: "/insdim/work" });
       } catch (err) {
         err;
       }

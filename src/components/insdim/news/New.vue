@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import newsService from "../../../service/inslens/NewsService";
+import newsService from "../../../service/insdim/NewsService";
 
 export default {
   data() {
@@ -28,7 +28,7 @@ export default {
   methods: {
     async createNews() {
       await newsService.createNews(this.newsDetail);
-      this.$router.push({ path: "/inslens/news" });
+      this.$router.push({ path: "/insdim/news" });
     }
   }
 };

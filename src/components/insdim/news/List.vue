@@ -3,7 +3,7 @@
     <v-flex xs3>
       <v-list class="clip-content" dense>
         <div v-for="(item,i) in newsList" :key="i">
-          <v-list-tile :to="'/inslens/news/'+item._id" ripple active-class="active-tile">
+          <v-list-tile :to="'/insdim/news/'+item._id" ripple active-class="active-tile">
             <v-list-tile-content>
               <v-list-tile-title class="subheading">{{item.title}}</v-list-tile-title>
             </v-list-tile-content>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import newsService from "../../../service/inslens/NewsService";
+import newsService from "../../../service/insdim/NewsService";
 import { mapGetters } from "vuex";
 export default {
   data() {

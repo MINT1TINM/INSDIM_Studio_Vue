@@ -18,36 +18,36 @@ export default new Router({
           component: () => import("./views/Launcher")
         },
         {
-          path: "/inslens",
-          component: () => import("./views/inslens/Home"),
+          path: "/insdim",
+          component: () => import("./views/insdim/Home"),
           children: [
             {
-              path: "/inslens/work",
-              component: () => import("./components/inslens/work/List"),
+              path: "/insdim/work",
+              component: () => import("./components/insdim/work/List"),
               children: [
                 {
-                  path: "/inslens/work/:id",
-                  component: () => import("./components/inslens/work/Detail")
+                  path: "/insdim/work/:id",
+                  component: () => import("./components/insdim/work/Detail")
                 }
               ]
             },
             {
-              path: "/inslens/newwork",
-              component: () => import("./components/inslens/work/New")
+              path: "/insdim/newwork",
+              component: () => import("./components/insdim/work/New")
             },
             {
-              path: "/inslens/news",
-              component: () => import("./components/inslens/news/List"),
+              path: "/insdim/news",
+              component: () => import("./components/insdim/news/List"),
               children: [
                 {
-                  path: "/inslens/news/:id",
-                  component: () => import("./components/inslens/news/Detail")
+                  path: "/insdim/news/:id",
+                  component: () => import("./components/insdim/news/Detail")
                 }
               ]
             },
             {
-              path: "/inslens/newnews",
-              component: () => import("./components/inslens/news/New")
+              path: "/insdim/newnews",
+              component: () => import("./components/insdim/news/New")
             }
           ]
         }

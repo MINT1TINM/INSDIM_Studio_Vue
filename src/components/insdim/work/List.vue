@@ -10,7 +10,7 @@
           </v-list-tile>
           <v-divider></v-divider>
           <v-list-tile
-            :to="'/inslens/work/'+sub_item._id"
+            :to="'/insdim/work/'+sub_item._id"
             ripple
             v-for="(sub_item,j) in item.item"
             :key="j"
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import workService from "../../../service/inslens/WorkService";
+import workService from "../../../service/insdim/WorkService";
 import { mapGetters } from "vuex";
 export default {
   data() {

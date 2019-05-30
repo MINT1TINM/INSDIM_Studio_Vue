@@ -101,7 +101,7 @@
 </template>
 
 <script>
-import newsService from "../../../service/inslens/NewsService";
+import newsService from "../../../service/insdim/NewsService";
 import { quillEditor } from "vue-quill-editor";
 
 export default {

@@ -32,22 +32,22 @@ export default {
         },
         {
           title: "+new",
-          route: "/inslens/newnews"
+          route: "/insdim/newnews"
         },
         {
           title: "list",
-          route: "/inslens/news"
+          route: "/insdim/news"
         },
         {
           heading: "work"
         },
         {
           title: "+new",
-          route: "/inslens/newwork"
+          route: "/insdim/newwork"
         },
         {
           title: "list",
-          route: "/inslens/work"
+          route: "/insdim/work"
         }
       ]
     };
