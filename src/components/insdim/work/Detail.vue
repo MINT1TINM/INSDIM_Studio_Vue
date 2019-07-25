@@ -11,7 +11,6 @@
           <v-divider class="mb-3"></v-divider>
           <v-switch color="primary" v-model="workDetail.visibility" label="visibility"></v-switch>
           <v-text-field v-model="workDetail.title" label="title" required></v-text-field>
-          <v-text-field v-model="workDetail.designer" label="designer" required></v-text-field>
           <v-text-field v-model="workDetail.year" label="year" required></v-text-field>
           <v-text-field v-model="workDetail.client" label="client" required></v-text-field>
           <v-text-field v-model="workDetail.pictures" label="pictures" required></v-text-field>
