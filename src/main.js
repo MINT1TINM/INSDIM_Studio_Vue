@@ -9,6 +9,7 @@ import vueQuillEditor from "vue-quill-editor";
 import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
 import "quill/dist/quill.bubble.css";
+import vuetify from './plugins/vuetify';
 
 Vue.use(dimUpload);
 Vue.use(vueQuillEditor);
@@ -30,5 +31,6 @@ axios.interceptors.request.use(config => {
 new Vue({
   router,
   store,
+  vuetify,
   render: h => h(App)
 }).$mount("#app");

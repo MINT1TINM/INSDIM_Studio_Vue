@@ -22,7 +22,8 @@ module.exports = {
   devServer: {
     proxy: {
       "/": {
-        target: "https://api.insdim.com",
+        // target: "https://api.insdim.com",
+        target: "http://127.0.0.1:3002",
         ws: false
       }
     }
