@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire" class="no-scrollbar">
+  <v-app class="no-scrollbar">
     <v-content>
       <v-container fluid fill-height style="padding:0 !important">
         <v-scroll-y-transition>
@@ -28,7 +28,7 @@
                   </v-form>
                 </v-card-text>
                 <v-card-actions class="pb-5">
-                  <v-btn outline color="primary" depressed @click="login" round>login</v-btn>
+                  <v-btn text color="primary" depressed @click="login" rounded>login</v-btn>
                 </v-card-actions>
               </v-container>
             </v-flex>
@@ -53,15 +53,13 @@ export default {
   },
   methods: {
     async login() {
-      this.$loading.show(true);
       if (this.$refs.loginForm.validate()) {
         const rsp = await authService.login(this.username, this.password);
-        if (rsp.msg == "success") {
+        if ((await rsp.msg) == "success") {
           workService.getWorkList();
           newsService.getNewsList();
           this.$router.push({ path: "/launcher" });
         }
-        this.$loading.show(false);
       }
     }
   },

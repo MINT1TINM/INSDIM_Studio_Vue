@@ -1,5 +1,4 @@
 import basicService from "./BasicService";
-import message from "../utils/Message";
 import store from "../store/store";
 class authService {
   static async login(username, password) {
@@ -11,7 +10,6 @@ class authService {
       var userInfo = rspData.data.user;
       store.dispatch("user/login", userInfo);
     }
-    message.snackbar(rspData.msg);
     return rspData;
   }
 }

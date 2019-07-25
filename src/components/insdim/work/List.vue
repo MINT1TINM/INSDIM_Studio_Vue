@@ -1,25 +1,25 @@
 <template>
-  <v-layout row wrap fill-height>
+  <v-layout>
     <v-flex xs3>
       <v-list class="clip-content" dense>
         <div v-for="(item,i) in workList" :key="i">
-          <v-list-tile>
-            <v-list-tile-content style="border-bottom:1px black">
-              <v-list-tile-title class="grey--text subheading">{{item.key}}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
+          <v-list-item>
+            <v-list-item-content style="border-bottom:1px black">
+              <v-list-item-title class="grey--text subheading">{{item.key}}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
           <v-divider></v-divider>
-          <v-list-tile
+          <v-list-item
             :to="'/insdim/work/'+sub_item._id"
             ripple
             v-for="(sub_item,j) in item.item"
             :key="j"
-            active-class="active-tile"
+            active-class="active-item"
           >
-            <v-list-tile-content>
-              <v-list-tile-title class="subheading">{{sub_item.title}}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
+            <v-list-item-content>
+              <v-list-item-title class="subheading">{{sub_item.title}}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
         </div>
       </v-list>
     </v-flex>

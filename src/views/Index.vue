@@ -1,20 +1,21 @@
 <template>
   <v-app>
-    <v-toolbar app clipped-left flat color="transparent">
+    <v-app-bar app clipped-left flat color="transparent">
       <v-toolbar-title>INSDIM Studio</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-menu offset-y>
-        <v-btn icon slot="activator">
-          <v-icon>more_vert</v-icon>
-        </v-btn>
-
-        <v-list>
-          <v-list-tile v-for="(item, i) in userMenu" :key="i" :to="item.route">
-            <v-list-tile-title>{{ item.text }}</v-list-tile-title>
-          </v-list-tile>
+        <template v-slot:activator="{on}">
+          <v-btn icon v-on="on">
+            <v-icon>more_vert</v-icon>
+          </v-btn>
+        </template>
+        <v-list dense>
+          <v-list-item v-for="(item, i) in userMenu" :key="i" :to="item.route">
+            <v-list-item-title>{{ item.text }}</v-list-item-title>
+          </v-list-item>
         </v-list>
       </v-menu>
-    </v-toolbar>
+    </v-app-bar>
     <router-view></router-view>
   </v-app>
 </template>

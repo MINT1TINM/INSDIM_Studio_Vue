@@ -9,14 +9,10 @@
             <v-btn @click="updateNews" depressed dark style="margin-right:-48px">save</v-btn>
           </v-toolbar>
           <v-divider class="mb-3"></v-divider>
-          <v-switch v-model="newsDetail.visibility" label="visibility"></v-switch>
+          <v-switch color="primary" v-model="newsDetail.visibility" label="visibility"></v-switch>
           <v-text-field v-model="newsDetail.title" label="title" required></v-text-field>
           <v-text-field v-model="newsDetail.author" label="author" required></v-text-field>
-          <quill-editor
-            v-model="newsDetail.content"
-            ref="myQuillEditor"
-            :options="editorOption"
-          ></quill-editor>
+          <quill-editor v-model="newsDetail.content" ref="myQuillEditor" :options="editorOption"></quill-editor>
 
           <v-toolbar class="toolbar-no-padding pt-4" flat color="transparent">
             <v-toolbar-title>media</v-toolbar-title>
@@ -68,7 +64,7 @@
                 </v-card>
               </v-flex>
             </v-layout>
-          </v-container> -->
+          </v-container>-->
           <v-toolbar class="toolbar-no-padding pt-4" flat color="transparent">
             <v-toolbar-title>fuck</v-toolbar-title>
           </v-toolbar>
