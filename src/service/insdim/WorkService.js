@@ -5,9 +5,7 @@ import message from "../../utils/Message";
 class workService {
   static async createWork(workDetail) {
     const rsp = await basicSerivce.postRequest("/inslens/work", workDetail);
-    if (rsp.msg == "success") {
-      message.snackbar(rsp.msg);
-    }
+
     return rsp;
   }
 
@@ -26,17 +24,11 @@ class workService {
 
   static async updateWork(workDetail) {
     const rsp = await basicSerivce.putRequest("/inslens/work", workDetail);
-    if (rsp.msg == "success") {
-      message.snackbar(rsp.msg);
-    }
     return rsp;
   }
 
   static async uploadPic(file) {
     const rsp = await basicSerivce.postRequest("/inslens/work/pic", file);
-    if (rsp.msg == "success") {
-      message.snackbar(rsp.msg);
-    }
     return rsp;
   }
 
@@ -53,9 +45,6 @@ class workService {
     const rsp = await basicSerivce.deleteRequest("/inslens/work", {
       workId: workId
     });
-    if (rsp.msg == "success") {
-      message.snackbar(rsp.msg);
-    }
     return rsp;
   }
 }

@@ -9,15 +9,22 @@
             <v-btn @click="updateWorkInfo" depressed dark style="margin-right:-48px">save</v-btn>
           </v-toolbar>
           <v-divider class="mb-3"></v-divider>
-          <v-switch v-model="workDetail.visibility" label="visibility"></v-switch>
+          <v-switch color="primary" v-model="workDetail.visibility" label="visibility"></v-switch>
           <v-text-field v-model="workDetail.title" label="title" required></v-text-field>
           <v-text-field v-model="workDetail.designer" label="designer" required></v-text-field>
           <v-text-field v-model="workDetail.year" label="year" required></v-text-field>
           <v-text-field v-model="workDetail.client" label="client" required></v-text-field>
           <v-text-field v-model="workDetail.pictures" label="pictures" required></v-text-field>
           <v-text-field v-model="workDetail.collaborator" label="collaborator" required></v-text-field>
+          <div class="mb-2 font-weight-bold">desc cn</div>
           <quill-editor
             v-model="workDetail.description"
+            ref="myQuillEditor"
+            :options="editorOption"
+          ></quill-editor>
+          <div class="mt-5 mb-2 font-weight-bold">desc en</div>
+          <quill-editor
+            v-model="workDetail.descriptionEn"
             ref="myQuillEditor"
             :options="editorOption"
           ></quill-editor>

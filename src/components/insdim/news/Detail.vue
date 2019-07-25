@@ -12,8 +12,10 @@
           <v-switch color="primary" v-model="newsDetail.visibility" label="visibility"></v-switch>
           <v-text-field v-model="newsDetail.title" label="title" required></v-text-field>
           <v-text-field v-model="newsDetail.author" label="author" required></v-text-field>
+          <div class="mb-2 font-weight-bold">content cn</div>
           <quill-editor v-model="newsDetail.content" ref="myQuillEditor" :options="editorOption"></quill-editor>
-
+          <div class="mt-5 mb-2 font-weight-bold">content en</div>
+          <quill-editor v-model="newsDetail.contentEn" ref="myQuillEditor" :options="editorOption"></quill-editor>
           <v-toolbar class="toolbar-no-padding pt-4" flat color="transparent">
             <v-toolbar-title>media</v-toolbar-title>
           </v-toolbar>

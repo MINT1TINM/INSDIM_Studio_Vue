@@ -1,13 +1,10 @@
 import basicSerivce from "../BasicService";
 import store from "../../store/store";
-import message from "../../utils/Message";
 
 class workService {
   static async createNews(newsDetail) {
     const rsp = await basicSerivce.postRequest("/inslens/post", newsDetail);
-    if (rsp.msg == "success") {
-      message.snackbar(rsp.msg);
-    }
+
     return rsp;
   }
 
@@ -26,17 +23,11 @@ class workService {
 
   static async updateNews(newsDetail) {
     const rsp = await basicSerivce.putRequest("/inslens/post", newsDetail);
-    if (rsp.msg == "success") {
-      message.snackbar(rsp.msg);
-    }
     return rsp;
   }
 
   static async uploadPic(file) {
     const rsp = await basicSerivce.postRequest("/inslens/post/pic", file);
-    if (rsp.msg == "success") {
-      message.snackbar(rsp.msg);
-    }
     return rsp;
   }
 
@@ -53,9 +44,6 @@ class workService {
     const rsp = await basicSerivce.deleteRequest("/inslens/post", {
       newsId: newsId
     });
-    if (rsp.msg == "success") {
-      message.snackbar(rsp.msg);
-    }
     return rsp;
   }
 }
