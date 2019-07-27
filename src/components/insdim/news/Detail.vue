@@ -12,7 +12,7 @@
           <v-switch color="primary" v-model="newsDetail.visibility" label="visibility"></v-switch>
           <v-text-field v-model="newsDetail.title" label="title" required></v-text-field>
           <v-text-field v-model="newsDetail.author" label="author" required></v-text-field>
-
+          <v-text-field v-model="newsDetail.createTime" label="create time"></v-text-field>
           <v-text-field v-model="newsDetail.intro" label="intro cn" required></v-text-field>
           <v-text-field v-model="newsDetail.introEn" label="intro en" required></v-text-field>
 
