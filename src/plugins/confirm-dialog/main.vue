@@ -6,8 +6,8 @@
         <v-card-text>{{text}}</v-card-text>
         <v-card-actions>
           <v-layout xs12 align-center>
-            <v-btn round block color="error" flat @click="cancel">no</v-btn>
-            <v-btn round block color="primary" flat @click="confirm">yes</v-btn>
+            <v-btn round color="error" text @click="cancel">no</v-btn>
+            <v-btn round color="primary" text @click="confirm">yes</v-btn>
           </v-layout>
         </v-card-actions>
       </v-card>

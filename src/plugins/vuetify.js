@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
 import "@/assets/style.css";
+import "./confirm-dialog/index";
+import "./snackbar/index";
 
 Vue.use(Vuetify);
 

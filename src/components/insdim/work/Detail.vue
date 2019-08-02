@@ -99,8 +99,8 @@
             </v-container>
             <v-card-actions>
               <v-layout align-center justify-center>
-                <v-btn round flat @click="uploadPicDialog = false">no</v-btn>
-                <v-btn round color="primary" flat @click="uploadPic">yes</v-btn>
+                <v-btn rounded text @click="uploadPicDialog = false">no</v-btn>
+                <v-btn rounded color="primary" flat @click="uploadPic">yes</v-btn>
               </v-layout>
             </v-card-actions>
           </v-card>
